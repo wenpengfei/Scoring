@@ -19,27 +19,24 @@ namespace Scoring.Controllers
         public ActionResult Index()
         {
             scoring_employee scoringEmployee = (scoring_employee)Session["User"];
-
             string str = DateTime.Now.ToString("yyyyMM");
 
-            List<scoring_results> scoringResultses = db.scoring_results.Where(w => w.ScoresSerializerId == str).ToList();
-            if (scoringResultses.Count > 0)
+            //当前用户 当月已经打过分
+            List<scoring_results> scoringResultses = db.scoring_results.Where(w => w.ScoresSerializerId == str && w.EmployeeId == scoringEmployee.Id).ToList();
+            ScoreMainModel smm = new ScoreMainModel();
+            if (scoringResultses.Count == 0)
             {
-                return View(new ScoreMainModel());
+                List<ScoreMain> scoreMains = db.scoring_employee.Where(s => s.DepartmentId == scoringEmployee.DepartmentId && s.Id != scoringEmployee.Id)
+                                     .Select(s => new ScoreMain
+                                     {
+                                         Id = s.Id,
+                                         Name = s.Name,
+                                         DepartmentId = s.DepartmentId,
+                                         Department = db.scoring_department.Where(w => w.Id == s.DepartmentId).FirstOrDefault().Name
+                                     }).OrderBy(o => o.Id).ToList();
+                smm = new ScoreMainModel { Employees = scoreMains };
             }
-            else
-            {
-                List<ScoreMain> scoreMains = db.scoring_employee.Where(s => s.DepartmentId == scoringEmployee.DepartmentId)
-                                                   .Select(s => new ScoreMain
-                                                   {
-                                                       Id = s.Id,
-                                                       Name = s.Name,
-                                                       DepartmentId = s.DepartmentId,
-                                                       Department = db.scoring_department.Where(w => w.Id == s.DepartmentId).FirstOrDefault().Name
-                                                   }).OrderBy(o => o.Id).ToList();
-                ScoreMainModel smm = new ScoreMainModel { Employees = scoreMains };
-                return View(smm);
-            }
+            return View(smm);
         }
 
         [HttpPost]

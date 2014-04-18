@@ -1,0 +1,35 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="8B141572-91FA-4442-89AB-C1E4EF7D087D/d:Controllers/f:HomeController.cs" caret="1756" fromTop="41" />
+      <File id="8B141572-91FA-4442-89AB-C1E4EF7D087D/d:Extension/f:AuthorizeAttribute.cs" caret="217" fromTop="8" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="8B141572-91FA-4442-89AB-C1E4EF7D087D/d:Controllers/f:HomeController.cs" caret="578" fromTop="11" />
+      <File id="8B141572-91FA-4442-89AB-C1E4EF7D087D/d:Controllers/f:HomeController.cs" caret="1665" fromTop="21" />
+      <File id="8B141572-91FA-4442-89AB-C1E4EF7D087D/d:Controllers/f:HomeController.cs" caret="1665" fromTop="15" />
+      <File id="8B141572-91FA-4442-89AB-C1E4EF7D087D/d:Controllers/f:HomeController.cs" caret="1665" fromTop="21" />
+      <File id="8B141572-91FA-4442-89AB-C1E4EF7D087D/d:Controllers/f:HomeController.cs" caret="884" fromTop="7" />
+      <File id="8B141572-91FA-4442-89AB-C1E4EF7D087D/d:Extension/f:AuthorizeAttribute.cs" caret="234" fromTop="9" />
+      <File id="8B141572-91FA-4442-89AB-C1E4EF7D087D/d:Extension/f:AuthorizeAttribute.cs" caret="554" fromTop="16" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+</Configuration>

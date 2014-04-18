@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="scoringModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="scoringModelStoreContainer">
+          <EntitySet Name="scoring_department" EntityType="scoringModel.Store.scoring_department" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="scoring_employee" EntityType="scoringModel.Store.scoring_employee" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="scoring_results" EntityType="scoringModel.Store.scoring_results" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="scoring_department">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nchar" MaxLength="10" />
+          <Property Name="ParentId" Type="int" />
+        </EntityType>
+        <EntityType Name="scoring_employee">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="DepartmentId" Type="int" />
+          <Property Name="Password" Type="nchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="scoring_results">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeId" Type="int" Nullable="false" />
+          <Property Name="Scores" Type="decimal" />
+          <Property Name="ScoresSerializerId" Type="nvarchar" MaxLength="50" />
+          <Property Name="BeRatedEmployeeId" Type="int" />
+          <Property Name="ScoreTime" Type="datetime" />
+          <Property Name="Suggest" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="scoringModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="scoringEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="scoring_department" EntityType="scoringModel.scoring_department" />
+          <EntitySet Name="scoring_employee" EntityType="scoringModel.scoring_employee" />
+          <EntitySet Name="scoring_results" EntityType="scoringModel.scoring_results" />
+        </EntityContainer>
+        <EntityType Name="scoring_department">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="ParentId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="scoring_employee">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="DepartmentId" Type="Int32" />
+          <Property Type="String" Name="Password" MaxLength="20" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="scoring_results">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+          <Property Name="Scores" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ScoresSerializerId" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="BeRatedEmployeeId" Type="Int32" />
+          <Property Name="ScoreTime" Type="DateTime" />
+          <Property Type="String" Name="Suggest" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="scoringModelStoreContainer" CdmEntityContainer="scoringEntities">
+          <EntitySetMapping Name="scoring_department"><EntityTypeMapping TypeName="scoringModel.scoring_department"><MappingFragment StoreEntitySet="scoring_department">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="scoring_employee"><EntityTypeMapping TypeName="scoringModel.scoring_employee"><MappingFragment StoreEntitySet="scoring_employee">
+            <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="scoring_results"><EntityTypeMapping TypeName="scoringModel.scoring_results"><MappingFragment StoreEntitySet="scoring_results">
+            <ScalarProperty Name="Suggest" ColumnName="Suggest" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+            <ScalarProperty Name="Scores" ColumnName="Scores" />
+            <ScalarProperty Name="ScoresSerializerId" ColumnName="ScoresSerializerId" />
+            <ScalarProperty Name="BeRatedEmployeeId" ColumnName="BeRatedEmployeeId" />
+            <ScalarProperty Name="ScoreTime" ColumnName="ScoreTime" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Scoring">
+        <EntityTypeShape EntityType="scoringModel.scoring_department" Width="1.5" PointX="0.75" PointY="0.75" Height="1.45359375" IsExpanded="true" />
+        <EntityTypeShape EntityType="scoringModel.scoring_employee" Width="1.5" PointX="2.75" PointY="0.75" Height="1.4535937499999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="scoringModel.scoring_results" Width="1.5" PointX="0.75" PointY="3" Height="1.9594531249999996" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,7 @@
+E:\git\Scoring\Scoring\bin\Scoring.dll
+E:\git\Scoring\Scoring\bin\Scoring.pdb
+E:\git\Scoring\Scoring\bin\EntityFramework.dll
+E:\git\Scoring\Scoring\bin\EntityFramework.xml
+E:\git\Scoring\Scoring\obj\Debug\ResolveAssemblyReference.cache
+E:\git\Scoring\Scoring\obj\Debug\Scoring.dll
+E:\git\Scoring\Scoring\obj\Debug\Scoring.pdb

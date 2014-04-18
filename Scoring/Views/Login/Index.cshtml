@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+@model Scoring.Models.scoring_employee
+<link rel="stylesheet" href="http://v3.bootcss.com/examples/signin/signin.css">
+<div class="container">
+    @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @class = "form-signin", role = "form" }))
+    {
+        <h2 class="form-signin-heading">
+            Please sign in</h2>
+        @Html.ValidationMessage("Valid")
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Name" })
+        @Html.TextBoxFor(x => x.Password, new { @class = "form-control", placeholder = "Password", type = "password" })
+        <button class="btn btn-lg btn-primary btn-block" type="submit">
+            Sign in</button>
+    }
+</div>
+<!-- /container -->

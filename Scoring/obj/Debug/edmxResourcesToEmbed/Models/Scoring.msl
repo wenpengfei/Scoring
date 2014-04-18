@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="scoringModelStoreContainer" CdmEntityContainer="scoringEntities">
+    <EntitySetMapping Name="scoring_department">
+      <EntityTypeMapping TypeName="scoringModel.scoring_department">
+        <MappingFragment StoreEntitySet="scoring_department">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="scoring_employee">
+      <EntityTypeMapping TypeName="scoringModel.scoring_employee">
+        <MappingFragment StoreEntitySet="scoring_employee">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="scoring_results">
+      <EntityTypeMapping TypeName="scoringModel.scoring_results">
+        <MappingFragment StoreEntitySet="scoring_results">
+          <ScalarProperty Name="Suggest" ColumnName="Suggest" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Scores" ColumnName="Scores" />
+          <ScalarProperty Name="ScoresSerializerId" ColumnName="ScoresSerializerId" />
+          <ScalarProperty Name="BeRatedEmployeeId" ColumnName="BeRatedEmployeeId" />
+          <ScalarProperty Name="ScoreTime" ColumnName="ScoreTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

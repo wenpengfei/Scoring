@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="scoringModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="scoringModelStoreContainer">
+    <EntitySet Name="scoring_department" EntityType="scoringModel.Store.scoring_department" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="scoring_employee" EntityType="scoringModel.Store.scoring_employee" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="scoring_results" EntityType="scoringModel.Store.scoring_results" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="scoring_department">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nchar" MaxLength="10" />
+    <Property Name="ParentId" Type="int" />
+  </EntityType>
+  <EntityType Name="scoring_employee">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="DepartmentId" Type="int" />
+    <Property Name="Password" Type="nchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="scoring_results">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="Scores" Type="decimal" />
+    <Property Name="ScoresSerializerId" Type="nvarchar" MaxLength="50" />
+    <Property Name="BeRatedEmployeeId" Type="int" />
+    <Property Name="ScoreTime" Type="datetime" />
+    <Property Name="Suggest" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+</Schema>

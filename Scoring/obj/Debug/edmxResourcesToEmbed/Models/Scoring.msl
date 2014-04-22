@@ -13,6 +13,7 @@
     <EntitySetMapping Name="scoring_employee">
       <EntityTypeMapping TypeName="scoringModel.scoring_employee">
         <MappingFragment StoreEntitySet="scoring_employee">
+          <ScalarProperty Name="Role" ColumnName="Role" />
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />

@@ -375,6 +375,30 @@ namespace Scoring.Models
         private global::System.String _Password;
         partial void OnPasswordChanging(global::System.String value);
         partial void OnPasswordChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Role
+        {
+            get
+            {
+                return _Role;
+            }
+            set
+            {
+                OnRoleChanging(value);
+                ReportPropertyChanging("Role");
+                _Role = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Role");
+                OnRoleChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Role;
+        partial void OnRoleChanging(Nullable<global::System.Int32> value);
+        partial void OnRoleChanged();
 
         #endregion
     

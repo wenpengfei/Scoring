@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+@using Scoring.Models;
+@model IQueryable<ScoreResult> 
+<link href="http://v3.bootcss.com/examples/jumbotron-narrow/jumbotron-narrow.css"
+    rel="stylesheet">
+<link href="/Content/select2.css" rel="stylesheet" type="text/css" />
+<script src="/Content/select2.min.js" type="text/javascript"></script>
+<script src="/Content/select2_locale_zh-CN.js" type="text/javascript"></script>
+@*<script type="text/javascript">
+    $(function () {
+        $("#e1").select2();
+    })
+</script>*@
+<div class="container">
+    <div class="header">
+        <ul class="nav nav-pills pull-right">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <h3 class="text-muted">
+            Project name</h3>
+    </div>
+    <div>
+@*        <select id="e1">
+            <optgroup label="111">
+                <option value="AL">Alabama</option>
+                <option value="WY">Wyoming</option>
+            </optgroup>
+        </select>
+        <hr />*@
+    </div>
+    <div>
+        <table class="table table-hover" id="scoring_content">
+            @if (Model != null && Model.Count() > 0)
+            { 
+                <thead>
+                    <tr>
+                        <th>
+                            姓名
+                        </th>
+                        <th>
+                            部门
+                        </th>
+                        <th>
+                            平均分
+                        </th>
+                        <th>
+                            打分人数
+                        </th>
+                    </tr>
+                </thead>
+          
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @item.Name
+                            </td>
+                            <td>
+                                @item.Department
+                            </td>
+                            <td>
+                                @item.ScoreAvg.ToString("f2")
+                            </td>
+                            <td>
+                                @item.VoteCount
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            }
+        </table>
+    </div>
+    <div class="footer">
+        <p>
+            &copy; Company 2013</p>
+    </div>
+</div>
+<!-- /container -->

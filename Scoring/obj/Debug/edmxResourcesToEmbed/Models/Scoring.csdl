@@ -21,6 +21,7 @@
     <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="DepartmentId" Type="Int32" />
     <Property Type="String" Name="Password" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Type="Int32" Name="Role" />
   </EntityType>
   <EntityType Name="scoring_results">
     <Key>

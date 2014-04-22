@@ -26,6 +26,7 @@
           <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="DepartmentId" Type="int" />
           <Property Name="Password" Type="nchar" MaxLength="20" />
+          <Property Name="Role" Type="int" />
         </EntityType>
         <EntityType Name="scoring_results">
           <Key>
@@ -64,6 +65,7 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="DepartmentId" Type="Int32" />
           <Property Type="String" Name="Password" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Type="Int32" Name="Role" />
         </EntityType>
         <EntityType Name="scoring_results">
           <Key>
@@ -89,7 +91,8 @@
             <ScalarProperty Name="ParentId" ColumnName="ParentId" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="scoring_employee"><EntityTypeMapping TypeName="scoringModel.scoring_employee"><MappingFragment StoreEntitySet="scoring_employee">
-            <ScalarProperty Name="Password" ColumnName="Password" />
+            <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
             <ScalarProperty Name="Name" ColumnName="Name" />
             <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />

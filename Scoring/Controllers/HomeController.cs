@@ -109,7 +109,8 @@ namespace Scoring.Controllers
             }
             scoring_employee scoringEmployee = (scoring_employee)Session["User"];
             List<int> sonIds = GetSonId(scoringEmployee.DepartmentId ?? -1).ToList();
-            IQueryable<scoring_employee> scoringEmployees = db.scoring_employee.Where(x => sonIds.Contains(x.DepartmentId ?? -1));
+            sonIds.Add(scoringEmployee.DepartmentId ?? -1);
+            IQueryable<scoring_employee> scoringEmployees = db.scoring_employee.Where(x => sonIds.Contains(x.DepartmentId ?? -1) && x.Id != scoringEmployee.Id);
             IQueryable<int> ids = scoringEmployees.Select(x => x.Id);
             int id = 0;
             if (Int32.TryParse(scoresSerializerId, out id))
@@ -129,7 +130,17 @@ namespace Scoring.Controllers
             return View();
         }
 
-
+        [LoginAuthorize]
+        public ActionResult Error(int errorid)
+        {
+            switch (errorid)
+            {
+                case 1:
+                    ViewData["ErrorMessage"] = "此功能收费";
+                    break;
+            }
+            return View();
+        }
 
         public IEnumerable<Int32> GetSonId(int pid)
         {

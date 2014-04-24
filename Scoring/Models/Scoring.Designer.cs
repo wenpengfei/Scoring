@@ -246,6 +246,30 @@ namespace Scoring.Models
         private Nullable<global::System.Int32> _ParentId;
         partial void OnParentIdChanging(Nullable<global::System.Int32> value);
         partial void OnParentIdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> dlevel
+        {
+            get
+            {
+                return _dlevel;
+            }
+            set
+            {
+                OndlevelChanging(value);
+                ReportPropertyChanging("dlevel");
+                _dlevel = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("dlevel");
+                OndlevelChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _dlevel;
+        partial void OndlevelChanging(Nullable<global::System.Int32> value);
+        partial void OndlevelChanged();
 
         #endregion
     

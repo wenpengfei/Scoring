@@ -33,7 +33,8 @@ namespace Scoring.Extension
                 {
                     if (((scoring_employee)context.Session["User"]).Role != 2 && ((scoring_employee)context.Session["User"]).Role != 3)
                     {
-                        context.Response.Redirect("/");
+                        context.Response.Redirect("/Home/Error?errorid=1");
+                        // context.Response.Redirect();
                     }
                 }
             }

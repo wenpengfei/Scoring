@@ -12,6 +12,7 @@
     <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="nchar" MaxLength="10" />
     <Property Name="ParentId" Type="int" />
+    <Property Name="dlevel" Type="int" />
   </EntityType>
   <EntityType Name="scoring_employee">
     <Key>

@@ -4,6 +4,7 @@
     <EntitySetMapping Name="scoring_department">
       <EntityTypeMapping TypeName="scoringModel.scoring_department">
         <MappingFragment StoreEntitySet="scoring_department">
+          <ScalarProperty Name="dlevel" ColumnName="dlevel" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="ParentId" ColumnName="ParentId" />

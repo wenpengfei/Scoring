@@ -17,6 +17,7 @@
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="nchar" MaxLength="10" />
           <Property Name="ParentId" Type="int" />
+          <Property Name="dlevel" Type="int" />
         </EntityType>
         <EntityType Name="scoring_employee">
           <Key>
@@ -56,6 +57,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
           <Property Name="ParentId" Type="Int32" />
+          <Property Type="Int32" Name="dlevel" />
         </EntityType>
         <EntityType Name="scoring_employee">
           <Key>
@@ -86,7 +88,8 @@
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="scoringModelStoreContainer" CdmEntityContainer="scoringEntities">
           <EntitySetMapping Name="scoring_department"><EntityTypeMapping TypeName="scoringModel.scoring_department"><MappingFragment StoreEntitySet="scoring_department">
-            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="dlevel" ColumnName="dlevel" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
             <ScalarProperty Name="Name" ColumnName="Name" />
             <ScalarProperty Name="ParentId" ColumnName="ParentId" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
